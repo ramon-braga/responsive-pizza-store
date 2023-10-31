@@ -62,3 +62,22 @@ function closeModal() {
 docAll('.pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton').forEach((btn) => {
     btn.addEventListener('click', closeModal);
 });
+// Subtracting pizzas quantity
+doc('.pizzaInfo--qtmenos').addEventListener('click', () => {
+    if (modalQt > 1) {
+        modalQt--;
+        doc('.pizzaInfo--qt').innerHTML = modalQt;
+    }
+});
+// Adding pizzas quantity
+doc('.pizzaInfo--qtmais').addEventListener('click', () => {
+    modalQt++;
+    doc('.pizzaInfo--qt').innerHTML = modalQt;
+});
+// Selecting the pizza size
+docAll('.pizzaInfo--size').forEach((size, sizeIndex) => {
+    size.addEventListener('click', (e) => {
+        doc('.pizzaInfo--size.selected').classList.remove('selected');
+        size.classList.add('selected');
+    });
+});
